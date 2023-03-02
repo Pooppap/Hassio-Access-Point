@@ -21,7 +21,7 @@
     "address": "192.168.99.1",
     "netmask": "255.255.255.0",
     "broadcast": "192.168.99.255",
-    "interface": "wlan0",
+    "interface": "wlx9ca2f4fd638f",
     "hide_ssid": "0",
     "dhcp": "0",
     "dhcp_start_addr": "192.168.99.10",
