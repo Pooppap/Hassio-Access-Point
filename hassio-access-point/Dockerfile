@@ -8,8 +8,15 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 ENV LANG C.UTF-8
 
 RUN apk update && \
-apk add --no-cache bash jq iw hostapd networkmanager networkmanager-cli net-tools sudo dnsmasq && \
-rm -rf /var/cache/apk/*
+apk add --no-cache bash jq iw networkmanager networkmanager-cli net-tools sudo dnsmasq git build-essential && \
+rm -rf /var/cache/apk/* && \
+git clone https://github.com/jenssegers/RTL8188-hostapd && \
+cd RTL8188-hostapd/hostapd && \
+make && \
+make install && \
+cd ../wpa_supplicant && \
+make && \
+make install
 
 COPY hostapd.conf /
 COPY dnsmasq.conf /
